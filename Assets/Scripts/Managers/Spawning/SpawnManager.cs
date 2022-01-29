@@ -68,7 +68,7 @@ public class SpawnManager : MonoBehaviour
     IEnumerator runSpawnLoop()
     {
         yield return new WaitForSeconds(_data.SpawnIntervalTime);
-        while (_shouldSpawn)
+        while (_shouldSpawn && _creaturesContainer.childCount < 15)
         {
             for (int i = 0; i < Random.Range(0, 5); i++)
             {
