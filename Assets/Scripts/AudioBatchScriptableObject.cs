@@ -8,6 +8,10 @@ public class AudioBatchScriptableObject : ScriptableObject
 {
 	public Action AudioEnded;
 
+    [SerializeField]
+    private AudioSource _source;
+    public AudioSource Source => _source;
+
 	public AudioClip[] clips;
 
     //public RangedFloat volume;
@@ -20,13 +24,13 @@ public class AudioBatchScriptableObject : ScriptableObject
     /// </summary>
     /// <param name="source"></param>
     /// <returns></returns>
-    public float Play(AudioSource source)
+    public float Play()
 	{
 		if (clips.Length == 0) return 0;
 
-		source.clip = clips[Random.Range(0, clips.Length)];
-		source.Play();
-		return source.clip.length;
+		_source.clip = clips[Random.Range(0, clips.Length)];
+		_source.Play();
+		return _source.clip.length;
 	}
 
 	public double getTheLegnthOfLongestClip()

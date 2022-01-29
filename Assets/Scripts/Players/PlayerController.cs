@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour
     private Players _playerType;
     public Players PlayerType => _playerType;
 
+    [SerializeField]
+    private AudioBatchScriptableObject _audioBatch;
+    public AudioBatchScriptableObject AudioBatch => _audioBatch;
+
     Animator anim;
     #endregion
 
@@ -79,6 +83,7 @@ public class PlayerController : MonoBehaviour
         //Call animation
         anim.SetTrigger("growl"); //in the Boo animation, there is an event that calls Growl()
 
+        _audioBatch.Play();
         //Stop motion
 
     }
