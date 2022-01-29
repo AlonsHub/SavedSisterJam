@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a9f940313d06d4caed9863bf024ebf, type: 3}
+  m_Name: PiggyIdle
+  m_EditorClassIdentifier: 
+  _source: {fileID: 0}
+  clips:
+  - {fileID: 8300000, guid: 11fda7084434947f19e7b60716d1f79c, type: 3}
+  - {fileID: 8300000, guid: f03a4e32e3df244a0b1fc8fc0e904c11, type: 3}
+  - {fileID: 8300000, guid: 9ada315421cab40048625796719a4a53, type: 3}
+  - {fileID: 8300000, guid: d82cbe366a758491e8814c20a9d5dea1, type: 3}
