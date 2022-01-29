@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Purple
   m_EditorClassIdentifier: 
   _maxHealth: 5
-  _currentHealth: 5
+  _currentHealth: -1
