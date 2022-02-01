@@ -39,6 +39,14 @@ public class MonsterComponent : MonoBehaviour
             canAttack = false;
             anim.SetTrigger("Attack"); //this starts the attack animation, which will prompt the "AttackHit()" method 
             pc = other.GetComponent<PlayerController>();
+            if(!pc)
+            {
+                pc = other.GetComponentInParent<PlayerController>();
+            }
+            if (!pc)
+            {
+                pc = other.GetComponentInChildren<PlayerController>();
+            }
 
             pc.GetDamage(damage);
         }

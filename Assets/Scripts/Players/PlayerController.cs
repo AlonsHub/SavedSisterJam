@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
+        _healthData.resetHealth();
     }
     private void OnEnable()
     {
@@ -72,6 +73,7 @@ public class PlayerController : MonoBehaviour
     private void YellowAtk()
     {
         if (AtkActionEvent != null) AtkActionEvent(_playerType);
+        anim.SetTrigger("heal");
     }
 
     private void PurpleAtk() //changed to "Start player attack" - Growl() calls the event
@@ -83,7 +85,7 @@ public class PlayerController : MonoBehaviour
         //Call animation
         anim.SetTrigger("growl"); //in the Boo animation, there is an event that calls Growl()
 
-        _audioBatch.Play();
+        //_audioBatch.Play();
         //Stop motion
 
     }
@@ -93,7 +95,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void Growl()
     {
-        if (AtkActionEvent != null) AtkActionEvent(_playerType); 
+        if (AtkActionEvent != null) AtkActionEvent(_playerType);
     }
 
     public void GetDamage(int dmg)
@@ -103,12 +105,19 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("dead", true);
             //make other sister cry - can end the session
+            Invoke(nameof(RestartLevel), 3);
+            GetComponent<LocomotionSimpleAgent>().enabled = false;
         }
         //hit animation
     }
 
     #endregion
+    public void RestartLevel()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+    }
 }
+
 
 public enum Players
 {

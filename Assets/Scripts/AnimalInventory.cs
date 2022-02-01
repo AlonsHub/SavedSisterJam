@@ -42,6 +42,10 @@ public class AnimalInventory : MonoBehaviour
         //Call update UI
         countDisplayer.text = animalCount.ToString();
 
+        if(animalCount >= 8)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+        }
         //Vector3 parkingSpot = firstParkingSpot.position + (animalCount%zRows)* Vector3.forward * 2f + (animalCount / zRows) * Vector3.right * 2f;
 
         //Instantiate(animalPrefab, firstParkingSpot.position, firstParkingSpot.rotation);
